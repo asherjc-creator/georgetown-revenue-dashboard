@@ -1,0 +1,6 @@
+Date,Rooms_Sold,Total_Rooms,Room_Revenue,Market_ADR,Market_Occ,Guest_Region,Lat,Lon
+3/1/2026,78,96,25350,310,0.75,Northeast,40.7128,-74.006
+3/2/2026,82,96,27470,315,0.78,Mid-Atlantic,39.9526,-75.1652
+3/3/2026,91,96,31850,330,0.85,New England,42.3601,-71.0589
+3/4/2026,94,96,35720,350,0.92,Southeast,33.749,-84.388
+3/5/2026,88,96,30800,320,0.8,West Coast,34.0522,-118.2437
