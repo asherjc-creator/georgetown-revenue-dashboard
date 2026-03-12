@@ -168,25 +168,41 @@ c1, c2 = st.columns(2)
 with c1:
     st.write("### Revenue & RevPAR Trend")
     
+    # We use make_subplots to allow two different Y-axis scales
     from plotly.subplots import make_subplots
     
-    # Create figure with secondary y-axis
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-    # Add Room Revenue (Primary Y-Axis)
+    # 1. Add Room Revenue (Primary Y-Axis - Left)
     fig.add_trace(
-        go.Scatter(x=filtered["Date"], y=filtered["Room_Revenue"], name="Room Revenue", line=dict(color='#1f77b4')),
+        go.Scatter(
+            x=filtered["Date"], 
+            y=filtered["Room_Revenue"], 
+            name="Room Revenue ($)",
+            line=dict(color='#1f77b4', width=3)
+        ),
         secondary_y=False,
     )
 
-    # Add RevPAR (Secondary Y-Axis)
+    # 2. Add RevPAR (Secondary Y-Axis - Right)
     fig.add_trace(
-        go.Scatter(x=filtered["Date"], y=filtered["RevPAR"], name="RevPAR", line=dict(color='#ff7f0e')),
+        go.Scatter(
+            x=filtered["Date"], 
+            y=filtered["RevPAR"], 
+            name="RevPAR ($)",
+            line=dict(color='#ff7f0e', width=3)
+        ),
         secondary_y=True,
     )
 
-    fig.update_layout(title_text="Daily Performance History")
-    fig.update_yaxes(title_text="<b>Revenue</b> ($)", secondary_y=False)
+    # Update layout to show both labels
+    fig.update_layout(
+        title_text="Daily Revenue vs. RevPAR Performance",
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+
+    fig.update_yaxes(title_text="<b>Total Revenue</b> ($)", secondary_y=False)
     fig.update_yaxes(title_text="<b>RevPAR</b> ($)", secondary_y=True)
 
     st.plotly_chart(fig, use_container_width=True)
@@ -296,6 +312,7 @@ with f_col2:
                 </span>
             </div>
             """, unsafe_allow_html=True)
+
 
 
 
