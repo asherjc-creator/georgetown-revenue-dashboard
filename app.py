@@ -166,7 +166,7 @@ kpi4.metric("Market Share (RGI)", f"{filtered['RGI'].mean()*100:.1f}")
 # -----------------------------
 c1, c2 = st.columns(2)
 with c1:
-    st.write("### Revenue & RevPAR Trend")
+    st.write("### RevPAR Trend")
     
     # We use make_subplots to allow two different Y-axis scales
     from plotly.subplots import make_subplots
@@ -197,7 +197,7 @@ with c1:
 
     # Update layout to show both labels
     fig.update_layout(
-        title_text="Daily Revenue vs. RevPAR Performance",
+        title_text="RevPAR Performance",
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
@@ -312,6 +312,7 @@ with f_col2:
                 </span>
             </div>
             """, unsafe_allow_html=True)
+
 
 
 
