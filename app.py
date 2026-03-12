@@ -159,7 +159,7 @@ kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 kpi1.metric("Average ADR", f"${filtered['ADR'].mean():.2f}")
 kpi2.metric("Occupancy", f"{filtered['Occupancy'].mean()*100:.1f}%")
 kpi3.metric("RevPAR", f"${filtered['RevPAR'].mean()*100:.2f}")
-kpi4.metric("Market Share (RGI)", f"{filtered['RGI'].mean():.1f}")
+kpi4.metric("Market Share (RGI)", f"{filtered['RGI'].mean()*100:.1f}")
 
 # -----------------------------
 # Main Charts
@@ -276,6 +276,7 @@ with f_col2:
                 </span>
             </div>
             """, unsafe_allow_html=True)
+
 
 
 
