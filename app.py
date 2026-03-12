@@ -109,7 +109,7 @@ def load_all_data():
     # Core Performance Metrics
     df["ADR"] = df["Room_Revenue"] / df["Rooms_Sold"]
     df["Occupancy"] = df["Rooms_Sold"] / df["Total_Rooms"]
-    df["RevPAR"] = df["Room_Revenue"] / df["Total_Rooms"] * 100
+    df["RevPAR"] = df["Room_Revenue"] / df["Total_Rooms"]
     df["MPI"] = (df["Occupancy"] / df["Market_Occ"]) * 100
     df["RGI"] = (df["RevPAR"] / (df["Market_ADR"] * df["Market_Occ"])) * 100
     
@@ -158,7 +158,7 @@ else:
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 kpi1.metric("Average ADR", f"${filtered['ADR'].mean():.2f}")
 kpi2.metric("Occupancy", f"{filtered['Occupancy'].mean()*100:.1f}%")
-kpi3.metric("RevPAR", f"${filtered['RevPAR'].mean():.2f}")
+kpi3.metric("RevPAR", f"${filtered['RevPAR'].mean()*100:.2f}")
 kpi4.metric("Market Share (RGI)", f"{filtered['RGI'].mean():.1f}")
 
 # -----------------------------
@@ -276,4 +276,5 @@ with f_col2:
                 </span>
             </div>
             """, unsafe_allow_html=True)
+
 
